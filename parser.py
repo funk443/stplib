@@ -51,6 +51,7 @@ LATIN_CODE_POINT: SPACE
     | SPECIAL
     | REVERSE_SOLIDUS
     | APOSTROPHE
+HIGH_CODEPOINT: /[u"\u0080-\u10ffff"]/
 
 keyword: USER_DIFINED_KEYWORD | STANDARD_KEYWORD
 USER_DIFINED_KEYWORD: "!" UPPER (UPPER | DIGIT)*
@@ -74,6 +75,7 @@ string: "'" INNER_STRING? "'"
 INNER_INSTANCE_NAME: DIGIT+
 entity_instance_name: "#" INNER_INSTANCE_NAME
 value_instance_name: "@" INNER_INSTANCE_NAME
+
 INNER_CONSTANT_NAME:  UPPER (UPPER | DIGIT)*
 constant_entity_name: "#" INNER_CONSTANT_NAME
 constant_value_name: "@" INNER_CONSTANT_NAME
@@ -92,7 +94,7 @@ INNER_ENUMERATION: UPPER (UPPER | DIGIT)*
 enumeration: "." INNER_ENUMERATION "."
 
 universal_fragment_identifier: "#" (LOWER | UPPER | DIGIT | SPECIAL)+
-universal_resource_identifier: /https/
+universal_resource_identifier: "FIXME!"
 resource: "<" universal_resource_identifier ">"
 
 signature_content: "FIXME!!"
